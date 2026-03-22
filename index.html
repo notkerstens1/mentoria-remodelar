@@ -182,6 +182,14 @@
             background: var(--walnut-deep); overflow: hidden;
             display: flex; align-items: center;
             padding: 120px 0 80px;
+            background-image: url('raniere-hero.png');
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(to right, var(--walnut-deep) 35%, rgba(30,29,27,0.6) 60%, rgba(30,29,27,0.3) 100%);
         }
         .hero .container { position: relative; z-index: 2; display: flex; align-items: center; gap: 40px; }
         .hero-content { flex: 0 0 58%; }
@@ -208,21 +216,7 @@
         .hero-sub { color: var(--stone); font-weight: 300; font-size: 1.05rem; margin-bottom: 36px; line-height: 1.8; max-width: 540px; }
         .hero-note { color: var(--stone-dark); font-size: 0.82rem; margin-top: 16px; letter-spacing: 0.5px; }
 
-        /* Hero image */
-        .hero-img {
-            width: 100%; max-width: 420px; position: relative; margin-left: auto;
-        }
-        .hero-img img {
-            width: 100%; height: auto; display: block;
-            border-radius: 16px; object-fit: cover;
-            position: relative; z-index: 1;
-        }
-        .hero-img::after {
-            content: ''; position: absolute; inset: 0; z-index: 2;
-            background: linear-gradient(to left, transparent 40%, var(--walnut-deep) 100%);
-            border-radius: 16px;
-            pointer-events: none;
-        }
+        /* Hero image - now used as background, no separate element needed */
 
         /* Prova social strip */
         .proof-strip {
@@ -520,9 +514,10 @@
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
+            .hero { background-position: top right -100px; min-height: auto; padding: 120px 0 60px; }
+            .hero::before { background: linear-gradient(to bottom, var(--walnut-deep) 10%, rgba(30,29,27,0.85) 50%, var(--walnut-deep) 100%); }
             .hero .container { flex-direction: column; text-align: center; }
             .hero-content { flex: 1; }
-            .hero-image { display: none; }
             .hero-sub { margin-left: auto; margin-right: auto; }
             .hero-badge { margin-left: auto; margin-right: auto; }
             .proof-strip { justify-content: center; }
@@ -604,8 +599,8 @@
                     <span class="proof-label">Encontros</span>
                 </div>
                 <div class="proof-item">
-                    <span class="proof-number" data-target="360">0</span>
-                    <span class="proof-label">Direcionamento</span>
+                    <span class="proof-number" data-target="4">0</span>
+                    <span class="proof-label">Pilares</span>
                 </div>
                 <div class="proof-item">
                     <span class="proof-number" data-target="6">0</span>
@@ -613,11 +608,7 @@
                 </div>
             </div>
         </div>
-        <div class="hero-image">
-            <div class="hero-img">
-                <img src="raniere-hero.png" alt="Dr. Raniere Sousa" loading="eager">
-            </div>
-        </div>
+        <!-- Foto integrada como background da seção hero -->
     </div>
     <div class="hero-gradient-fade"></div>
 </section>
@@ -683,8 +674,8 @@
     <div class="container text-center">
         <div class="section-label reveal">O PROGRAMA</div>
         <div class="section-label-line center reveal"></div>
-        <h2 class="reveal">Um método. Quatro pilares.<br>Direcionamento real.</h2>
-        <p class="program-intro reveal">A mentoria está pronta. A estrutura existe. O que falta é você trazer a sua realidade pra dentro dela, e o Dr. Raniere te guia no 360.</p>
+        <h2 class="reveal">O que nenhum curso entrega:<br>um método que conecta tudo.</h2>
+        <p class="program-intro reveal">Técnica sem gestão não escala. Marketing sem posicionamento não converte. A Remodelar integra os 4 pilares num único direcionamento — o seu.</p>
     </div>
     <div class="container">
         <div class="method-grid">
@@ -846,12 +837,7 @@
     <div class="container text-center">
         <div class="section-label reveal">QUEM JÁ PASSOU POR AQUI</div>
         <div class="section-label-line center reveal"></div>
-        <h2 class="reveal">Mentorados em 3 países.</h2>
-        <div class="flags-strip reveal">
-            <span class="flag-icon">🇧🇷</span>
-            <span class="flag-icon">🇵🇹</span>
-            <span class="flag-icon">🇵🇪</span>
-        </div>
+        <h2 class="reveal">O que dizem os mentorados.</h2>
     </div>
     <div class="container">
         <div class="testimonials-grid">
@@ -1065,7 +1051,7 @@
             <p class="reveal">Ou pode parar de acumular informação e começar a organizar o que já sabe dentro de um método que funcione na sua realidade.</p>
             <p class="reveal">A mentoria não vai te ensinar mais técnica. Vai te dar clareza para usar o que você já sabe com segurança, coerência e resultado.</p>
         </div>
-        <p class="closing-highlight reveal">12 encontros. 6 meses. Um mentor.<br>Direcionamento no 360.</p>
+        <p class="closing-highlight reveal">12 encontros. 6 meses. Um mentor.<br>O método que organiza tudo.</p>
         <!-- TODO: substituir pelo WhatsApp da Bruna -->
         <a href="#investimento" class="shiny-cta reveal">
             Quero aplicar para a mentoria
@@ -1179,7 +1165,6 @@
                         clearInterval(timer);
                     }
                     el.textContent = Math.round(current);
-                    if (target === 360) el.textContent = Math.round(current) + '°';
                 }, 40);
                 counterObs.unobserve(el);
             }
