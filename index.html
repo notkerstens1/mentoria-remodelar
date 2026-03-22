@@ -182,18 +182,22 @@
             background: var(--walnut-deep); overflow: hidden;
             display: flex; align-items: center;
             padding: 120px 0 80px;
-            background-image: url('raniere-hero.png');
-            background-size: cover;
-            background-position: top center;
-            background-repeat: no-repeat;
         }
-        .hero::before {
-            content: ''; position: absolute; inset: 0; z-index: 1;
-            background: linear-gradient(to right, var(--walnut-deep) 35%, rgba(30,29,27,0.6) 60%, rgba(30,29,27,0.3) 100%);
+        /* Foto posicionada à direita como elemento absoluto */
+        .hero-bg-photo {
+            position: absolute; right: 0; top: 0; bottom: 0; width: 55%;
+            z-index: 0;
         }
-        .hero .container { position: relative; z-index: 2; display: flex; align-items: center; gap: 40px; }
-        .hero-content { flex: 0 0 58%; }
-        .hero-image { flex: 1; position: relative; }
+        .hero-bg-photo img {
+            width: 100%; height: 100%; object-fit: cover; object-position: top center;
+            display: block;
+        }
+        .hero-bg-photo::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to right, var(--walnut-deep) 0%, rgba(30,29,27,0.85) 25%, rgba(30,29,27,0.3) 60%, rgba(30,29,27,0.1) 100%);
+        }
+        .hero .container { position: relative; z-index: 2; }
+        .hero-content { max-width: 560px; }
 
         .hero-badge {
             display: inline-flex; align-items: center; gap: 8px;
@@ -211,9 +215,9 @@
             50% { opacity: 0.4; transform: scale(0.7); }
         }
 
-        .hero h1 { color: var(--cream); margin-bottom: 24px; }
+        .hero h1 { color: var(--cream); margin-bottom: 28px; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.15; }
         .hero h1 strong { color: var(--gold); font-weight: 600; }
-        .hero-sub { color: var(--stone); font-weight: 300; font-size: 1.05rem; margin-bottom: 36px; line-height: 1.8; max-width: 540px; }
+        .hero-sub { color: var(--stone); font-weight: 300; font-size: 1.1rem; margin-bottom: 40px; line-height: 1.8; max-width: 480px; }
         .hero-note { color: var(--stone-dark); font-size: 0.82rem; margin-top: 16px; letter-spacing: 0.5px; }
 
         /* Hero image - now used as background, no separate element needed */
@@ -514,10 +518,11 @@
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
-            .hero { background-position: top right -100px; min-height: auto; padding: 120px 0 60px; }
-            .hero::before { background: linear-gradient(to bottom, var(--walnut-deep) 10%, rgba(30,29,27,0.85) 50%, var(--walnut-deep) 100%); }
-            .hero .container { flex-direction: column; text-align: center; }
-            .hero-content { flex: 1; }
+            .hero { min-height: auto; padding: 120px 0 60px; }
+            .hero-bg-photo { width: 100%; opacity: 0.2; }
+            .hero-bg-photo::after { background: linear-gradient(to bottom, var(--walnut-deep) 0%, rgba(30,29,27,0.5) 50%, var(--walnut-deep) 100%); }
+            .hero .container { text-align: center; }
+            .hero-content { max-width: 100%; }
             .hero-sub { margin-left: auto; margin-right: auto; }
             .hero-badge { margin-left: auto; margin-right: auto; }
             .proof-strip { justify-content: center; }
@@ -579,6 +584,9 @@
 <!-- ==================== SEÇÃO 1 — HERO ==================== -->
 <section class="hero" id="hero">
     <canvas class="grid-canvas" id="heroGrid"></canvas>
+    <div class="hero-bg-photo">
+        <img src="raniere-hero.png" alt="Dr. Raniere Sousa" loading="eager">
+    </div>
     <div class="container">
         <div class="hero-content">
             <div class="hero-badge">
