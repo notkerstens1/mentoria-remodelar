@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mentoria Remodelar — Programa de mentoria para ortodontistas com o Dr. Raniere Sousa. 12 encontros quinzenais com direcionamento personalizado em técnica, gestão, marketing e posicionamento.">
+    <title>Mentoria Remodelar — Dr. Raniere Sousa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ========== CSS CUSTOM PROPERTIES ========== */
+        :root {
+            --gold: #D1A054;
+            --gold-light: #E8C87A;
+            --gold-dark: #B8863A;
+            --walnut: #2D2C2A;
+            --walnut-deep: #1E1D1B;
+            --walnut-soft: #3A3632;
+            --cream: #F7F5F2;
+            --cream-dark: #EDE9E3;
+            --sand: #E8E2DA;
+            --stone: #C4BAB0;
+            --stone-dark: #8A7E72;
+            --white: #FFFFFF;
+        }
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', 'Montserrat', sans-serif;
+            color: var(--walnut-soft);
+            background: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.25; }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 400; }
+        h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 400; }
+        h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 400; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ========== LOADING SCREEN ========== */
+        .loading-screen {
+            position: fixed; inset: 0; z-index: 10000;
+            background: var(--walnut-deep);
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease;
+        }
+        .loading-screen.hidden { opacity: 0; pointer-events: none; }
+        .loading-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem; color: var(--cream);
+            animation: pulse-load 1.5s ease-in-out infinite;
+        }
+        .loading-logo span { color: var(--gold); }
+        @keyframes pulse-load {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.04); }
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 16px 0;
+            transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+        }
+        .navbar.scrolled {
+            background: rgba(30, 29, 27, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 10px 0;
+            box-shadow: 0 2px 24px rgba(0,0,0,0.2);
+        }
+        .navbar .container {
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem; color: var(--cream); font-weight: 600;
+        }
+        .nav-brand span { color: var(--gold); }
+        .nav-cta-wrap { display: flex; align-items: center; gap: 1rem; }
+        .nav-cta {
+            font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold);
+            border: 1px solid rgba(209,160,84,0.4); border-radius: 360px;
+            padding: 0.55rem 1.4rem; transition: all 0.3s ease;
+        }
+        .nav-cta:hover { background: rgba(209,160,84,0.1); border-color: var(--gold); }
+
+        /* ========== SHINY CTA BUTTON ========== */
+        @property --gradient-angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        .shiny-cta {
+            isolation: isolate; position: relative; overflow: hidden; cursor: pointer;
+            padding: 1.1rem 2.5rem;
+            font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            border: 2px solid transparent; border-radius: 360px; color: #fff;
+            background:
+                linear-gradient(#2D2C2A, #2D2C2A) padding-box,
+                conic-gradient(from var(--gradient-angle), transparent 25%, #D1A054 30%, white 35%, #D1A054 40%, transparent 45%) border-box;
+            animation: gradient-angle 3s linear infinite;
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .shiny-cta:hover {
+            box-shadow: 0 0 20px rgba(209,160,84,0.35), 0 0 40px rgba(209,160,84,0.15);
+        }
+        .shiny-cta .arrow { transition: transform 0.3s ease; }
+        .shiny-cta:hover .arrow { transform: translateX(4px); }
+        @keyframes gradient-angle { to { --gradient-angle: 360deg; } }
+
+        /* ========== GRID PATTERN (canvas) ========== */
+        .grid-canvas {
+            position: absolute; inset: 0; z-index: 0; pointer-events: none;
+        }
+
+        /* ========== SECTION LABELS ========== */
+        .section-label {
+            font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 600;
+            letter-spacing: 4px; text-transform: uppercase; color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .section-label-line {
+            width: 60px; height: 3px; background: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        .section-label-line.center { margin-left: auto; margin-right: auto; }
+
+        /* ========== WAVE DIVIDERS ========== */
+        .wave-divider { margin-top: -1px; line-height: 0; position: relative; z-index: 2; }
+        .wave-divider svg { width: 100%; height: 60px; display: block; }
+
+        /* ========== SCROLL ARROW ========== */
+        .scroll-arrow-wrap { text-align: center; padding: 20px 0; background: var(--cream); position: relative; z-index: 2; }
+        .scroll-arrow {
+            width: 40px; height: 40px; margin: 0 auto;
+            border: 1.5px solid var(--gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            animation: bounce-arrow 2s ease-in-out infinite;
+            cursor: pointer; color: var(--gold);
+        }
+        @keyframes bounce-arrow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ========== REVEAL ANIMATIONS ========== */
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .highlight-mark {
+            background: linear-gradient(120deg, rgba(209,160,84,0.15) 0%, rgba(209,160,84,0.15) 100%);
+            background-repeat: no-repeat; background-size: 0% 100%;
+            transition: background-size 0.8s ease;
+            padding: 2px 0;
+        }
+        .highlight-mark.visible { background-size: 100% 100%; }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative; min-height: 100vh;
+            background: var(--walnut-deep); overflow: hidden;
+            display: flex; align-items: center;
+            padding: 120px 0 80px;
+        }
+        .hero .container { position: relative; z-index: 2; display: flex; align-items: center; gap: 40px; }
+        .hero-content { flex: 0 0 58%; }
+        .hero-image { flex: 1; position: relative; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 1px solid rgba(209,160,84,0.4); border-radius: 360px;
+            padding: 6px 18px 6px 12px; margin-bottom: 28px;
+            font-size: 0.78rem; font-weight: 500; color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+        .badge-dot {
+            width: 8px; height: 8px; background: var(--gold); border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
+
+        .hero h1 { color: var(--cream); margin-bottom: 24px; }
+        .hero h1 strong { color: var(--gold); font-weight: 600; }
+        .hero-sub { color: var(--stone); font-weight: 300; font-size: 1.05rem; margin-bottom: 36px; line-height: 1.8; max-width: 540px; }
+        .hero-note { color: var(--stone-dark); font-size: 0.82rem; margin-top: 16px; letter-spacing: 0.5px; }
+
+        /* Hero image */
+        .hero-img {
+            width: 100%; max-width: 420px; position: relative; margin-left: auto;
+        }
+        .hero-img img {
+            width: 100%; height: auto; display: block;
+            border-radius: 16px; object-fit: cover;
+            position: relative; z-index: 1;
+        }
+        .hero-img::after {
+            content: ''; position: absolute; inset: 0; z-index: 2;
+            background: linear-gradient(to left, transparent 40%, var(--walnut-deep) 100%);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+
+        /* Prova social strip */
+        .proof-strip {
+            display: flex; align-items: center; gap: 0; margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .proof-item { display: flex; flex-direction: column; align-items: center; padding: 0 28px; }
+        .proof-item + .proof-item { border-left: 1px solid rgba(196,186,176,0.2); }
+        .proof-number {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
+            color: var(--gold); line-height: 1.2;
+        }
+        .proof-label {
+            font-family: 'DM Sans', sans-serif; font-size: 0.65rem; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase; color: var(--stone-dark);
+        }
+
+        .hero-gradient-fade {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 120px; z-index: 1;
+            background: linear-gradient(to bottom, transparent, var(--walnut-deep));
+        }
+
+        /* ========== SEÇÃO 2 — DOR ========== */
+        .pain-section { padding: 100px 0; background: var(--cream); }
+        .pain-section h2 { max-width: 700px; margin-bottom: 20px; }
+        .pain-intro { max-width: 700px; margin-bottom: 48px; color: var(--walnut-soft); font-size: 1.05rem; line-height: 1.8; }
+
+        .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 48px; }
+        .pain-card {
+            background: var(--white); border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0;
+            padding: 28px 28px 28px 24px;
+        }
+        .pain-card h4 {
+            font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 1rem;
+            color: var(--walnut); margin-bottom: 8px;
+        }
+        .pain-card p { color: var(--stone-dark); font-size: 0.92rem; line-height: 1.7; }
+
+        .pain-callout {
+            border-left: 3px solid var(--gold); padding: 24px 28px;
+            background: rgba(209,160,84,0.06); border-radius: 0 12px 12px 0;
+            font-size: 1rem; color: var(--walnut-soft); line-height: 1.7;
+            margin-bottom: 40px; max-width: 750px;
+        }
+
+        .text-center { text-align: center; }
+
+        /* ========== SEÇÃO 3 — O PROGRAMA ========== */
+        .program-section {
+            position: relative; padding: 100px 0; background: var(--walnut); overflow: hidden;
+        }
+        .program-section .section-label, .program-section h2, .program-section p { position: relative; z-index: 2; }
+        .program-section h2 { color: var(--cream); margin-bottom: 20px; }
+        .program-intro { color: var(--stone); font-weight: 300; font-size: 1.05rem; max-width: 650px; margin: 0 auto 56px; line-height: 1.8; }
+
+        .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; z-index: 2; }
+        .method-card {
+            background: rgba(209,160,84,0.08); border: 1px solid rgba(209,160,84,0.15);
+            border-radius: 14px; padding: 32px 24px; text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .method-card:hover { transform: translateY(-4px); border-color: rgba(209,160,84,0.35); }
+        .method-icon {
+            width: 48px; height: 48px; margin: 0 auto 16px;
+            border-radius: 12px; background: rgba(209,160,84,0.12);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .method-icon svg { width: 24px; height: 24px; color: var(--gold); }
+        .method-card h4 {
+            font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.95rem;
+            color: var(--cream); margin-bottom: 8px;
+        }
+        .method-card p { color: var(--stone); font-size: 0.85rem; line-height: 1.6; }
+
+        /* ========== SEÇÃO 4 — FORMATO ========== */
+        .format-section { padding: 100px 0; background: var(--cream-dark); }
+        .format-section h2 { margin-bottom: 48px; }
+
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .step-card {
+            background: var(--white); border-radius: 16px; padding: 40px 28px 32px;
+            position: relative; overflow: hidden;
+        }
+        .step-number {
+            font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 700;
+            color: rgba(45,44,42,0.04); position: absolute; top: -10px; right: 16px;
+            line-height: 1;
+        }
+        .step-card h4 {
+            font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 1.05rem;
+            color: var(--walnut); margin-bottom: 12px; position: relative;
+        }
+        .step-card p { color: var(--stone-dark); font-size: 0.92rem; line-height: 1.7; position: relative; }
+
+        /* ========== SEÇÃO 5 — DIFERENCIAL ========== */
+        .diff-section { padding: 100px 0; background: var(--cream); }
+        .diff-section h2 { margin-bottom: 48px; }
+
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; border-radius: 16px; overflow: hidden; }
+        .diff-col { padding: 40px 36px; }
+        .diff-col.courses { background: var(--sand); }
+        .diff-col.mentoria { background: var(--walnut); color: var(--cream); }
+        .diff-col h4 {
+            font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.75rem;
+            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 28px;
+            padding-bottom: 16px; border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .diff-col.mentoria h4 { color: var(--gold); border-bottom-color: rgba(209,160,84,0.2); }
+        .diff-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6; }
+        .diff-bullet {
+            width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 7px;
+        }
+        .diff-bullet.gray { background: var(--stone); }
+        .diff-bullet.gold { background: var(--gold); }
+        .diff-col.mentoria .diff-item { color: var(--sand); }
+
+        /* ========== SEÇÃO 6 — PARA QUEM É ========== */
+        .audience-section { padding: 100px 0; background: var(--cream-dark); }
+        .audience-section h2 { margin-bottom: 48px; }
+
+        .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .audience-item {
+            display: flex; align-items: flex-start; gap: 16px;
+            background: var(--white); border-radius: 12px; padding: 24px;
+        }
+        .check-circle {
+            width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+            background: rgba(209,160,84,0.1);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .check-circle svg { width: 18px; height: 18px; color: var(--gold); }
+        .audience-item p { color: var(--walnut-soft); font-size: 0.95rem; line-height: 1.6; }
+
+        /* ========== SEÇÃO 7 — DEPOIMENTOS ========== */
+        .testimonials-section { padding: 100px 0; background: var(--white); }
+        .testimonials-section h2 { margin-bottom: 12px; }
+        .flags-strip { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 48px; }
+        .flag-icon { font-size: 1.4rem; }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+        .testimonial-card {
+            background: var(--cream); border-radius: 16px; padding: 32px;
+            position: relative;
+        }
+        .testimonial-card.big { grid-row: 1 / 3; display: flex; flex-direction: column; justify-content: center; }
+        .quote-mark {
+            font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold);
+            line-height: 1; margin-bottom: 8px; opacity: 0.4;
+        }
+        .testimonial-text { font-style: italic; color: var(--walnut-soft); font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px; }
+        .testimonial-card.big .testimonial-text { font-size: 1.05rem; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .author-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--sand); border: 2px solid rgba(209,160,84,0.2);
+        }
+        .author-info strong { display: block; font-size: 0.9rem; color: var(--walnut); }
+        .author-info span { font-size: 0.8rem; color: var(--stone-dark); }
+
+        /* ========== SEÇÃO 8 — QUEM CONDUZ ========== */
+        .speaker-section {
+            position: relative; padding: 100px 0; background: var(--walnut-deep); overflow: hidden;
+        }
+        .speaker-section .container { position: relative; z-index: 2; display: flex; align-items: center; gap: 56px; }
+        .speaker-photo { flex: 0 0 38%; }
+        .speaker-photo-placeholder {
+            width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, rgba(209,160,84,0.08), rgba(209,160,84,0.02));
+            border-radius: 16px; border: 1px solid rgba(209,160,84,0.1);
+        }
+        .speaker-info { flex: 1; }
+        .speaker-info .section-label { margin-bottom: 20px; }
+        .speaker-info h3 { color: var(--cream); margin-bottom: 24px; }
+        .speaker-info h3 span { color: var(--gold); }
+        .speaker-bio p { color: var(--stone); font-weight: 300; font-size: 1rem; line-height: 1.8; margin-bottom: 16px; }
+        .speaker-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+        .speaker-tag {
+            border: 1px solid rgba(209,160,84,0.35); border-radius: 360px;
+            padding: 6px 18px; font-size: 0.78rem; font-weight: 500;
+            color: var(--gold); letter-spacing: 0.5px;
+        }
+        .speaker-countries {
+            display: flex; align-items: center; gap: 10px; margin-top: 24px;
+            color: var(--stone-dark); font-size: 0.85rem;
+        }
+        .speaker-countries .flag-icon { font-size: 1.2rem; }
+
+        /* ========== SEÇÃO 9 — INVESTIMENTO ========== */
+        .invest-section { padding: 100px 0; background: var(--cream); }
+        .invest-section h2 { margin-bottom: 48px; }
+
+        .invest-card {
+            max-width: 520px; margin: 0 auto;
+            border: 1px solid rgba(209,160,84,0.3); border-radius: 20px;
+            overflow: hidden; background: var(--white);
+        }
+        .invest-card-bar { height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+        .invest-card-body { padding: 44px 40px; }
+        .invest-badge {
+            display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem;
+            font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+            color: var(--gold); border: 1px solid rgba(209,160,84,0.3);
+            border-radius: 360px; padding: 5px 16px; margin-bottom: 28px;
+        }
+        .invest-price {
+            font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700;
+            color: var(--walnut); margin-bottom: 4px;
+        }
+        .invest-price span { font-size: 1.2rem; font-weight: 400; }
+        .invest-period { color: var(--stone-dark); font-size: 0.9rem; margin-bottom: 32px; }
+        .invest-features { list-style: none; margin-bottom: 36px; }
+        .invest-features li {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 10px 0; font-size: 0.95rem; color: var(--walnut-soft);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+        .invest-features li svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+        .invest-cta-wrap { text-align: center; }
+        .invest-note { text-align: center; color: var(--stone-dark); font-size: 0.85rem; margin-top: 16px; }
+
+        /* ========== SEÇÃO 10 — FAQ ========== */
+        .faq-section { padding: 100px 0; background: var(--cream-dark); }
+        .faq-section h2 { margin-bottom: 48px; }
+
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.07); overflow: hidden;
+        }
+        .faq-question {
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            padding: 22px 0; cursor: pointer; width: 100%; background: none; border: none;
+            font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600;
+            color: var(--walnut); text-align: left;
+        }
+        .faq-chevron {
+            width: 20px; height: 20px; flex-shrink: 0;
+            transition: transform 0.3s ease; color: var(--gold);
+        }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+        .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 22px; }
+        .faq-answer p { color: var(--stone-dark); font-size: 0.92rem; line-height: 1.8; }
+
+        /* ========== SEÇÃO 11 — FECHAMENTO ========== */
+        .closing-section {
+            position: relative; padding: 100px 0; background: var(--walnut); overflow: hidden;
+            text-align: center;
+        }
+        .closing-section .container { position: relative; z-index: 2; }
+        .closing-avatar {
+            width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 40px;
+            border: 2px solid rgba(209,160,84,0.2);
+            background: linear-gradient(135deg, rgba(209,160,84,0.08), rgba(209,160,84,0.02));
+        }
+        .closing-text {
+            max-width: 680px; margin: 0 auto;
+        }
+        .closing-text p {
+            font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            font-weight: 300; color: var(--cream); line-height: 1.9; margin-bottom: 20px;
+        }
+        .closing-highlight {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 600;
+            color: var(--gold); margin: 36px 0 44px; line-height: 1.5;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #151413; text-align: center; padding: 48px 0;
+        }
+        .footer-brand {
+            font-family: 'Playfair Display', serif; font-size: 1.2rem;
+            color: var(--cream); margin-bottom: 12px; font-weight: 600;
+        }
+        .footer-brand span { color: var(--gold); }
+        .footer-info { color: var(--stone-dark); font-size: 0.85rem; margin-bottom: 6px; }
+
+        /* ========== STICKY CTA MOBILE ========== */
+        .sticky-cta {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
+            background: rgba(45,44,42,0.95); backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 14px 20px;
+            transform: translateY(100%); transition: transform 0.4s ease;
+        }
+        .sticky-cta.visible { transform: translateY(0); }
+        .sticky-cta .shiny-cta { width: 100%; justify-content: center; font-size: 0.78rem; padding: 0.95rem 1.5rem; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero .container { flex-direction: column; text-align: center; }
+            .hero-content { flex: 1; }
+            .hero-image { display: none; }
+            .hero-sub { margin-left: auto; margin-right: auto; }
+            .hero-badge { margin-left: auto; margin-right: auto; }
+            .proof-strip { justify-content: center; }
+            .proof-item { padding: 0 18px; }
+            .proof-number { font-size: 1.5rem; }
+
+            .pain-grid { grid-template-columns: 1fr; }
+            .method-grid { grid-template-columns: 1fr 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .diff-grid { grid-template-columns: 1fr; }
+            .audience-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .testimonial-card.big { grid-row: auto; }
+
+            .speaker-section .container { flex-direction: column; }
+            .speaker-photo { flex: none; width: 100%; max-width: 320px; margin: 0 auto; }
+
+            .invest-card-body { padding: 32px 24px; }
+            .invest-price { font-size: 2.4rem; }
+
+            .nav-cta { display: none; }
+            .sticky-cta { display: block; }
+        }
+
+        @media (max-width: 480px) {
+            .method-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== REDUCED MOTION ========== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+            .highlight-mark { background-size: 100% 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loading-screen" id="loadingScreen">
+    <div class="loading-logo">Mentoria <span>Remodelar</span></div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="#" class="nav-brand">Mentoria <span>Remodelar</span></a>
+        <div class="nav-cta-wrap">
+            <!-- TODO: substituir pelo WhatsApp da Bruna -->
+            <a href="#investimento" class="nav-cta">Aplicar agora</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== SEÇÃO 1 — HERO ==================== -->
+<section class="hero" id="hero">
+    <canvas class="grid-canvas" id="heroGrid"></canvas>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Vagas limitadas
+            </div>
+            <h1>Você é bom no que faz.<br>O mercado ainda não percebeu.<br><strong>A Mentoria Remodelar muda isso.</strong></h1>
+            <p class="hero-sub">12 encontros quinzenais com o Dr. Raniere Sousa. Direcionamento personalizado em técnica, gestão, marketing e posicionamento. Tudo num lugar só.</p>
+            <!-- TODO: substituir pelo WhatsApp da Bruna -->
+            <a href="#investimento" class="shiny-cta">
+                Quero aplicar para a mentoria
+                <span class="arrow">→</span>
+            </a>
+            <p class="hero-note">Processo seletivo. Vagas limitadas.</p>
+            <div class="proof-strip">
+                <div class="proof-item">
+                    <span class="proof-number" data-target="12">0</span>
+                    <span class="proof-label">Encontros</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-number" data-target="360">0</span>
+                    <span class="proof-label">Direcionamento</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-number" data-target="6">0</span>
+                    <span class="proof-label">Meses</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-img">
+                <img src="raniere-hero.png" alt="Dr. Raniere Sousa" loading="eager">
+            </div>
+        </div>
+    </div>
+    <div class="hero-gradient-fade"></div>
+</section>
+
+<!-- SCROLL ARROW -->
+<div class="scroll-arrow-wrap">
+    <div class="scroll-arrow" onclick="document.getElementById('dor').scrollIntoView({behavior:'smooth'})">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+</div>
+
+<!-- ==================== SEÇÃO 2 — DOR ==================== -->
+<section class="pain-section" id="dor">
+    <div class="container">
+        <div class="section-label reveal">O PROBLEMA REAL</div>
+        <div class="section-label-line reveal"></div>
+        <h2 class="reveal">Você fez dezenas de cursos.<br>E ainda trava nas mesmas decisões.</h2>
+        <p class="pain-intro reveal">O problema nunca foi falta de informação. Foi falta de <span class="highlight-mark">um sistema que organize o que você já sabe dentro de um método que funcione na sua realidade.</span></p>
+
+        <div class="pain-grid">
+            <div class="pain-card reveal">
+                <h4>Conhecimento fragmentado</h4>
+                <p>Fez muitos cursos, aprendeu técnicas isoladas, mas não tem um sistema coerente de decisão clínica. Cada caso exige energia excessiva.</p>
+            </div>
+            <div class="pain-card reveal">
+                <h4>Insegurança que não passa</h4>
+                <p>Extrair ou não, cirurgia ou compensação, miniplaca ou miniimplante. A dúvida não some com mais estudo.</p>
+            </div>
+            <div class="pain-card reveal">
+                <h4>Dificuldade em cobrar</h4>
+                <p>Sabe que entrega mais do que a média, mas não consegue comunicar isso ao paciente. Cobra menos do que deveria.</p>
+            </div>
+            <div class="pain-card reveal">
+                <h4>Isolamento profissional</h4>
+                <p>Conduz casos sozinho, sem par para discutir, sem mentor para validar decisões. Carrega o peso das escolhas clínicas sem rede.</p>
+            </div>
+        </div>
+
+        <div class="pain-callout reveal">
+            Se você se reconheceu em pelo menos dois desses pontos, a Mentoria Remodelar foi construída para o seu perfil.
+        </div>
+
+        <div class="text-center reveal">
+            <!-- TODO: substituir pelo WhatsApp da Bruna -->
+            <a href="#investimento" class="shiny-cta">
+                Quero aplicar para a mentoria
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- WAVE DIVIDER (cream → walnut) -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--walnut)"/>
+    </svg>
+</div>
+
+<!-- ==================== SEÇÃO 3 — O PROGRAMA ==================== -->
+<section class="program-section" id="programa">
+    <canvas class="grid-canvas" id="programGrid"></canvas>
+    <div class="container text-center">
+        <div class="section-label reveal">O PROGRAMA</div>
+        <div class="section-label-line center reveal"></div>
+        <h2 class="reveal">Um método. Quatro pilares.<br>Direcionamento real.</h2>
+        <p class="program-intro reveal">A mentoria está pronta. A estrutura existe. O que falta é você trazer a sua realidade pra dentro dela, e o Dr. Raniere te guia no 360.</p>
+    </div>
+    <div class="container">
+        <div class="method-grid">
+            <div class="method-card reveal">
+                <div class="method-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h4>Técnica Clínica</h4>
+                <p>Diagnóstico, biomecânica, miniplacas, planejamento avançado.</p>
+            </div>
+            <div class="method-card reveal">
+                <div class="method-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                </div>
+                <h4>Gestão</h4>
+                <p>Consultório, agenda, processos, equipe e operação clínica.</p>
+            </div>
+            <div class="method-card reveal">
+                <div class="method-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                </div>
+                <h4>Marketing</h4>
+                <p>Presença digital, conteúdo, autoridade e geração de demanda.</p>
+            </div>
+            <div class="method-card reveal">
+                <div class="method-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                </div>
+                <h4>Posicionamento</h4>
+                <p>Comunicação de valor, cobrança e percepção de mercado.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WAVE DIVIDER (walnut → cream-dark) -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--cream-dark)"/>
+    </svg>
+</div>
+
+<!-- ==================== SEÇÃO 4 — FORMATO ==================== -->
+<section class="format-section" id="formato">
+    <div class="container text-center">
+        <div class="section-label reveal">FORMATO</div>
+        <div class="section-label-line center reveal"></div>
+        <h2 class="reveal">Como a mentoria funciona na prática.</h2>
+    </div>
+    <div class="container">
+        <div class="steps-grid">
+            <div class="step-card reveal">
+                <span class="step-number">01</span>
+                <h4>Trilha guiada</h4>
+                <p>Antes de cada encontro, você recebe aulas preparatórias gravadas. Assiste no seu tempo, chega preparado para o aprofundamento ao vivo.</p>
+            </div>
+            <div class="step-card reveal">
+                <span class="step-number">02</span>
+                <h4>Encontro ao vivo</h4>
+                <p>12 encontros temáticos quinzenais de 1h30. Você traz seus casos, dúvidas de gestão, posicionamento, cobrança. Raniere direciona ao vivo.</p>
+            </div>
+            <div class="step-card reveal">
+                <span class="step-number">03</span>
+                <h4>Direcionamento 360</h4>
+                <p>Nada de conteúdo genérico. Você traz a sua realidade e recebe direcionamento específico em técnica, gestão, marketing e posicionamento.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SEÇÃO 5 — DIFERENCIAL ==================== -->
+<section class="diff-section" id="diferencial">
+    <div class="container text-center">
+        <div class="section-label reveal">DIFERENCIAL</div>
+        <div class="section-label-line center reveal"></div>
+        <h2 class="reveal">Curso dá informação.<br>Mentoria dá direcionamento.</h2>
+    </div>
+    <div class="container">
+        <div class="diff-grid reveal">
+            <div class="diff-col courses">
+                <h4>Cursos Tradicionais</h4>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Conteúdo padronizado para turma genérica</div>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Cobre uma fatia: só técnica, ou só gestão, ou só marketing</div>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Tem início e fim. Depois, você volta pro isolamento</div>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Resultado depende de você aplicar sozinho</div>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Você recebe informação e precisa descobrir como usar</div>
+            </div>
+            <div class="diff-col mentoria">
+                <h4>Mentoria Remodelar</h4>
+                <div class="diff-item"><span class="diff-bullet gold"></span> Você traz a sua realidade e recebe direcionamento específico</div>
+                <div class="diff-item"><span class="diff-bullet gold"></span> Cobre o 360: técnica, gestão, marketing e posicionamento</div>
+                <div class="diff-item"><span class="diff-bullet gold"></span> 12 encontros com continuidade e acompanhamento</div>
+                <div class="diff-item"><span class="diff-bullet gold"></span> Resultado vem do direcionamento ao vivo, caso a caso</div>
+                <div class="diff-item"><span class="diff-bullet gold"></span> Você organiza o que já sabe dentro de um método que funciona</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SEÇÃO 6 — PARA QUEM É ==================== -->
+<section class="audience-section" id="perfil">
+    <div class="container text-center">
+        <div class="section-label reveal">PERFIL</div>
+        <div class="section-label-line center reveal"></div>
+        <h2 class="reveal">Para quem é a Mentoria Remodelar.</h2>
+    </div>
+    <div class="container">
+        <div class="audience-grid">
+            <div class="audience-item reveal">
+                <div class="check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <p>Ortodontista que é bom tecnicamente mas o mercado não percebe.</p>
+            </div>
+            <div class="audience-item reveal">
+                <div class="check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <p>Fez muitos cursos mas não integrou tudo em método.</p>
+            </div>
+            <div class="audience-item reveal">
+                <div class="check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <p>Quer atender casos complexos com mais segurança.</p>
+            </div>
+            <div class="audience-item reveal">
+                <div class="check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <p>Sente falta de direcionamento em gestão, posicionamento e cobrança.</p>
+            </div>
+            <div class="audience-item reveal">
+                <div class="check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <p>Precisa de acompanhamento, não de mais conteúdo.</p>
+            </div>
+            <div class="audience-item reveal">
+                <div class="check-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <p>Conduz casos sozinho e quer sair do isolamento profissional.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WAVE DIVIDER (cream-dark → white) -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--white)"/>
+    </svg>
+</div>
+
+<!-- ==================== SEÇÃO 7 — DEPOIMENTOS ==================== -->
+<!-- TODO: substituir pelos depoimentos reais -->
+<section class="testimonials-section" id="depoimentos">
+    <div class="container text-center">
+        <div class="section-label reveal">QUEM JÁ PASSOU POR AQUI</div>
+        <div class="section-label-line center reveal"></div>
+        <h2 class="reveal">Mentorados em 3 países.</h2>
+        <div class="flags-strip reveal">
+            <span class="flag-icon">🇧🇷</span>
+            <span class="flag-icon">🇵🇹</span>
+            <span class="flag-icon">🇵🇪</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="testimonials-grid">
+            <div class="testimonial-card big reveal">
+                <div class="quote-mark">"</div>
+                <p class="testimonial-text">A mentoria mudou a forma como eu conduzo meu consultório. Não foi só técnica — foi posicionamento, gestão, comunicação. Pela primeira vez, sinto que tenho um método integrado, e não pedaços soltos de conhecimento. O Raniere tem uma clareza absurda para direcionar.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <strong>Dra. Exemplo Silva</strong>
+                        <span>São Paulo, Brasil</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="quote-mark">"</div>
+                <p class="testimonial-text">Em 3 meses já consegui reorganizar minha agenda, reajustar valores e atender casos que antes eu encaminhava. O retorno do investimento foi imediato.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <strong>Dr. Exemplo Costa</strong>
+                        <span>Lisboa, Portugal</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="quote-mark">"</div>
+                <p class="testimonial-text">A Mentoria Remodelar me deu segurança para tomar decisões clínicas que eu evitava. Saí do isolamento profissional.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <strong>Dr. Exemplo Ramos</strong>
+                        <span>Lima, Peru</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WAVE DIVIDER (white → walnut-deep) -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--walnut-deep)"/>
+    </svg>
+</div>
+
+<!-- ==================== SEÇÃO 8 — QUEM CONDUZ ==================== -->
+<section class="speaker-section" id="quem-conduz">
+    <canvas class="grid-canvas" id="speakerGrid"></canvas>
+    <div class="container">
+        <div class="speaker-photo">
+            <!-- TODO: substituir pela foto do Raniere -->
+            <div class="speaker-photo-placeholder"></div>
+        </div>
+        <div class="speaker-info">
+            <div class="section-label reveal">QUEM CONDUZ</div>
+            <div class="section-label-line reveal"></div>
+            <h3 class="reveal">Dr. <span>Raniere Sousa</span></h3>
+            <div class="speaker-bio">
+                <p class="reveal">Ortodontista especialista em diagnóstico 3D, ancoragem esquelética e tratamento de casos complexos.</p>
+                <p class="reveal">Criador da Mentoria Remodelar e da Turnê Remodelar, programa itinerante que conecta profissionais em 5 cidades do Brasil.</p>
+                <p class="reveal">Ele não ensina teoria desconectada da prática. Ensina o raciocínio que usa todos os dias para resolver casos que outros profissionais devolvem.</p>
+            </div>
+            <div class="speaker-tags reveal">
+                <span class="speaker-tag">Casos Complexos</span>
+                <span class="speaker-tag">Diagnóstico 3D</span>
+                <span class="speaker-tag">Miniplacas</span>
+                <span class="speaker-tag">Mentoria 360</span>
+            </div>
+            <div class="speaker-countries reveal">
+                <span>Mentorados em mais de 3 países</span>
+                <span class="flag-icon">🇧🇷</span>
+                <span class="flag-icon">🇵🇹</span>
+                <span class="flag-icon">🇵🇪</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WAVE DIVIDER (walnut-deep → cream) -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--cream)"/>
+    </svg>
+</div>
+
+<!-- ==================== SEÇÃO 9 — INVESTIMENTO ==================== -->
+<section class="invest-section" id="investimento">
+    <div class="container text-center">
+        <div class="section-label reveal">INVESTIMENTO</div>
+        <div class="section-label-line center reveal"></div>
+        <h2 class="reveal">O investimento que se paga em 2 a 3 casos.</h2>
+    </div>
+    <div class="container">
+        <div class="invest-card reveal">
+            <div class="invest-card-bar"></div>
+            <div class="invest-card-body text-center">
+                <div class="invest-badge">MENTORIA REMODELAR</div>
+                <div class="invest-price"><span>R$</span> 10.000</div>
+                <p class="invest-period" style="margin-bottom:8px;">à vista</p>
+                <p class="invest-period" style="font-size:0.85rem; color:var(--stone);">ou <strong style="color:var(--walnut);font-weight:600;">R$ 12.000</strong> parcelado no cartão</p>
+                <ul class="invest-features" style="text-align:left;">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        12 encontros temáticos quinzenais de 1h30
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Trilha guiada com aulas preparatórias gravadas
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Direcionamento personalizado: você traz sua realidade
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        360 completo: técnica, gestão, marketing, posicionamento
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Acesso direto ao Dr. Raniere
+                    </li>
+                </ul>
+                <div class="invest-cta-wrap">
+                    <!-- TODO: substituir pelo WhatsApp da Bruna -->
+                    <a href="#" class="shiny-cta">
+                        Falar com a equipe
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+                <p class="invest-note">A Bruna vai te explicar formato, datas e condições de pagamento.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SEÇÃO 10 — FAQ ==================== -->
+<section class="faq-section" id="duvidas">
+    <div class="container text-center">
+        <div class="section-label reveal">DÚVIDAS</div>
+        <div class="section-label-line center reveal"></div>
+        <h2 class="reveal">Perguntas frequentes.</h2>
+    </div>
+    <div class="container">
+        <div class="faq-list">
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    Já fiz muitos cursos. Por que esse seria diferente?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Porque não é curso. Curso dá informação, mentoria dá direcionamento. Se os cursos resolvessem, você não estaria aqui. O problema nunca foi falta de conteúdo. Foi falta de alguém que organize o que você já sabe dentro de um método que funcione na sua realidade.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    Não tenho tempo.
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Os encontros são quinzenais, de 1h30. Menos de 3 horas por mês. Se não tem 3 horas por mês pra investir na evolução da própria carreira, o problema é maior do que a mentoria resolve.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    O investimento é alto.
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Quanto custa continuar sem método, cobrando menos do que deveria, perdendo casos por insegurança na decisão? A mentoria se paga em 2 a 3 casos bem conduzidos. É investimento com retorno direto.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    Não sei se estou no momento certo.
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>A maioria dos mentorados achava a mesma coisa antes de entrar. Se você sente que é bom tecnicamente mas o mercado não percebe, se fez vários cursos e ainda trava nos mesmos pontos, esse é exatamente o perfil que a mentoria foi desenhada para receber.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    Preciso ser ortodontista?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>A mentoria é focada em ortodontistas, mas dentistas de outras especialidades que trabalham com casos integrados e precisam de direcionamento em gestão, posicionamento e método também se beneficiam. Fale com a equipe para entender se faz sentido pro seu perfil.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WAVE DIVIDER (cream-dark → walnut) -->
+<div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--walnut)"/>
+    </svg>
+</div>
+
+<!-- ==================== SEÇÃO 11 — FECHAMENTO ==================== -->
+<section class="closing-section" id="fechamento">
+    <canvas class="grid-canvas" id="closingGrid"></canvas>
+    <div class="container">
+        <!-- TODO: substituir pela foto do Raniere -->
+        <div class="closing-avatar"></div>
+        <div class="closing-text">
+            <p class="reveal">Você pode continuar fazendo cursos, salvando PDFs e resolvendo caso a caso no improviso.</p>
+            <p class="reveal">Ou pode parar de acumular informação e começar a organizar o que já sabe dentro de um método que funcione na sua realidade.</p>
+            <p class="reveal">A mentoria não vai te ensinar mais técnica. Vai te dar clareza para usar o que você já sabe com segurança, coerência e resultado.</p>
+        </div>
+        <p class="closing-highlight reveal">12 encontros. 6 meses. Um mentor.<br>Direcionamento no 360.</p>
+        <!-- TODO: substituir pelo WhatsApp da Bruna -->
+        <a href="#investimento" class="shiny-cta reveal">
+            Quero aplicar para a mentoria
+            <span class="arrow">→</span>
+        </a>
+    </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-brand">Mentoria <span>Remodelar</span></div>
+        <p class="footer-info">Dr. Raniere Sousa — @drraniere</p>
+        <p class="footer-info">&copy; 2026 — Todos os direitos reservados</p>
+    </div>
+</footer>
+
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta" id="stickyCta">
+    <!-- TODO: substituir pelo WhatsApp da Bruna -->
+    <a href="#investimento" class="shiny-cta">
+        Aplicar para a mentoria
+        <span class="arrow">→</span>
+    </a>
+</div>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+(function() {
+    'use strict';
+
+    // ====== LOADING SCREEN ======
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('loadingScreen').classList.add('hidden');
+        }, 800);
+    });
+
+    // ====== NAVBAR SCROLL ======
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+        const y = window.scrollY;
+        if (y > 60) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        lastScroll = y;
+    }, { passive: true });
+
+    // ====== STICKY CTA MOBILE ======
+    const stickyCta = document.getElementById('stickyCta');
+    const heroEl = document.getElementById('hero');
+    if (stickyCta && heroEl) {
+        const stickyObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (!e.isIntersecting) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0 });
+        stickyObs.observe(heroEl);
+    }
+
+    // ====== SCROLL REVEAL ======
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                // Stagger siblings
+                const parent = e.target.parentElement;
+                const siblings = parent ? Array.from(parent.querySelectorAll('.reveal')) : [];
+                const idx = siblings.indexOf(e.target);
+                e.target.style.transitionDelay = (idx * 100) + 'ms';
+                e.target.classList.add('visible');
+                revealObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    reveals.forEach(function(el) { revealObs.observe(el); });
+
+    // ====== HIGHLIGHT MARK ======
+    const marks = document.querySelectorAll('.highlight-mark');
+    const markObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                markObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    marks.forEach(function(el) { markObs.observe(el); });
+
+    // ====== COUNTER ANIMATION ======
+    const counters = document.querySelectorAll('.proof-number[data-target]');
+    const counterObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                const el = e.target;
+                const target = parseInt(el.getAttribute('data-target'));
+                let current = 0;
+                const steps = 30;
+                const inc = target / steps;
+                const timer = setInterval(function() {
+                    current += inc;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    el.textContent = Math.round(current);
+                    if (target === 360) el.textContent = Math.round(current) + '°';
+                }, 40);
+                counterObs.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(function(el) { counterObs.observe(el); });
+
+    // ====== FAQ ACCORDION ======
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const item = btn.parentElement;
+            const wasOpen = item.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+            if (!wasOpen) item.classList.add('open');
+        });
+    });
+
+    // ====== GRID PATTERN (animated SVG squares) ======
+    function initGrid(canvasId) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const goldR = 209, goldG = 160, goldB = 84;
+        const cellSize = 40;
+        let cols, rows, squares = [];
+        let mouseX = -1, mouseY = -1;
+        let raf;
+
+        function resize() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+            cols = Math.ceil(canvas.width / cellSize);
+            rows = Math.ceil(canvas.height / cellSize);
+            squares = [];
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    squares.push({
+                        x: c * cellSize, y: r * cellSize,
+                        opacity: 0, target: 0,
+                        blinkTimer: Math.random() * 300
+                    });
+                }
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Draw grid lines
+            ctx.strokeStyle = 'rgba(' + goldR + ',' + goldG + ',' + goldB + ',0.04)';
+            ctx.lineWidth = 0.5;
+            for (let x = 0; x <= canvas.width; x += cellSize) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+            }
+            for (let y = 0; y <= canvas.height; y += cellSize) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+            }
+            // Animate squares
+            for (let i = 0; i < squares.length; i++) {
+                const sq = squares[i];
+                sq.blinkTimer--;
+                if (sq.blinkTimer <= 0) {
+                    sq.target = Math.random() < 0.03 ? 0.08 + Math.random() * 0.04 : 0;
+                    sq.blinkTimer = 100 + Math.random() * 300;
+                }
+                // Mouse proximity
+                if (mouseX >= 0) {
+                    const cx = sq.x + cellSize / 2;
+                    const cy = sq.y + cellSize / 2;
+                    const dist = Math.sqrt((cx - mouseX) ** 2 + (cy - mouseY) ** 2);
+                    if (dist < 150) {
+                        sq.target = Math.max(sq.target, 0.1 * (1 - dist / 150));
+                    }
+                }
+                sq.opacity += (sq.target - sq.opacity) * 0.08;
+                if (sq.opacity > 0.005) {
+                    ctx.fillStyle = 'rgba(' + goldR + ',' + goldG + ',' + goldB + ',' + sq.opacity + ')';
+                    ctx.fillRect(sq.x + 1, sq.y + 1, cellSize - 2, cellSize - 2);
+                }
+            }
+            raf = requestAnimationFrame(draw);
+        }
+
+        canvas.parentElement.addEventListener('mousemove', function(e) {
+            const rect = canvas.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+        });
+        canvas.parentElement.addEventListener('mouseleave', function() {
+            mouseX = -1; mouseY = -1;
+        });
+
+        resize();
+        draw();
+
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(resize, 200);
+        });
+    }
+
+    // Init grids after load
+    window.addEventListener('load', function() {
+        initGrid('heroGrid');
+        initGrid('programGrid');
+        initGrid('speakerGrid');
+        initGrid('closingGrid');
+    });
+
+})();
+</script>
+
+</body>
+</html>
