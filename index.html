@@ -183,16 +183,16 @@
             display: flex; align-items: center;
             padding: 120px 0 80px;
             background-image: url('raniere-hero.png');
-            background-size: auto 100%;
-            background-position: right center;
+            background-size: cover;
+            background-position: top center;
             background-repeat: no-repeat;
         }
         .hero::before {
             content: ''; position: absolute; inset: 0; z-index: 1;
-            background: linear-gradient(to right, var(--walnut-deep) 30%, rgba(30,29,27,0.7) 50%, rgba(30,29,27,0.2) 70%, transparent 100%);
+            background: linear-gradient(to right, var(--walnut-deep) 35%, rgba(30,29,27,0.6) 60%, rgba(30,29,27,0.3) 100%);
         }
-        .hero .container { position: relative; z-index: 2; }
-        .hero-content { max-width: 600px; }
+        .hero .container { position: relative; z-index: 2; display: flex; align-items: center; gap: 40px; }
+        .hero-content { flex: 0 0 58%; }
         .hero-image { flex: 1; position: relative; }
 
         .hero-badge {
