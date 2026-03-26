@@ -194,7 +194,7 @@
         }
         .hero-bg-photo::after {
             content: ''; position: absolute; inset: 0;
-            background: linear-gradient(to right, var(--walnut-deep) 0%, rgba(30,29,27,0.85) 20%, rgba(30,29,27,0.3) 50%, rgba(30,29,27,0.05) 100%);
+            background: linear-gradient(to right, var(--walnut-deep) 0%, rgba(30,29,27,0.7) 12%, rgba(30,29,27,0.2) 35%, rgba(30,29,27,0.03) 60%, transparent 100%);
         }
         .hero .container { position: relative; z-index: 2; max-width: none; margin-left: 0; padding-left: clamp(24px, 5vw, 80px); }
         .hero-content { max-width: min(900px, 58vw); }
@@ -276,7 +276,7 @@
         .program-section h2 { color: var(--cream); margin-bottom: 20px; }
         .program-intro { color: var(--stone); font-weight: 300; font-size: 1.05rem; max-width: 650px; margin: 0 auto 56px; line-height: 1.8; }
 
-        .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; z-index: 2; }
+        .method-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; position: relative; z-index: 2; }
         .method-card {
             background: rgba(209,160,84,0.08); border: 1px solid rgba(209,160,84,0.15);
             border-radius: 14px; padding: 32px 24px; text-align: center;
@@ -530,7 +530,7 @@
             .proof-number { font-size: 1.5rem; }
 
             .pain-grid { grid-template-columns: 1fr; }
-            .method-grid { grid-template-columns: 1fr 1fr; }
+            .method-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
             .steps-grid { grid-template-columns: 1fr; }
             .diff-grid { grid-template-columns: 1fr; }
             .audience-grid { grid-template-columns: 1fr; }
@@ -602,7 +602,7 @@
                 Vagas limitadas
             </div>
             <h1>Você é bom no que faz.<br>Mas o mercado não percebe.<br><strong>A Mentoria Remodelar muda isso.</strong></h1>
-            <p class="hero-sub">12 encontros quinzenais com o Dr. Raniere Sousa. Direcionamento personalizado em técnica, gestão, marketing e posicionamento. Tudo num lugar só.</p>
+            <p class="hero-sub">9 módulos de ortodontia integrada. Diagnóstico 3D, miniplacas, casos complexos, gestão e posicionamento — com direcionamento individual do Dr. Raniere Sousa.</p>
             <!-- TODO: substituir pelo WhatsApp da Bruna -->
             <a href="#investimento" class="shiny-cta">
                 Quero aplicar para a mentoria
@@ -611,12 +611,16 @@
             <p class="hero-note">Processo seletivo. Vagas limitadas.</p>
             <div class="proof-strip">
                 <div class="proof-item">
+                    <span class="proof-number" data-target="9">0</span>
+                    <span class="proof-label">Módulos</span>
+                </div>
+                <div class="proof-item">
                     <span class="proof-number" data-target="12">0</span>
                     <span class="proof-label">Encontros</span>
                 </div>
                 <div class="proof-item">
-                    <span class="proof-number" data-target="4">0</span>
-                    <span class="proof-label">Pilares</span>
+                    <span class="proof-number" data-target="2">0</span>
+                    <span class="proof-label">Individuais</span>
                 </div>
                 <div class="proof-item">
                     <span class="proof-number" data-target="6">0</span>
@@ -641,30 +645,30 @@
     <div class="container">
         <div class="section-label reveal">O PROBLEMA REAL</div>
         <div class="section-label-line reveal"></div>
-        <h2 class="reveal">Você fez dezenas de cursos.<br>E ainda trava nas mesmas decisões.</h2>
-        <p class="pain-intro reveal">O problema nunca foi falta de informação. Foi falta de <span class="highlight-mark">um sistema que organize o que você já sabe dentro de um método que funcione na sua realidade.</span></p>
+        <h2 class="reveal">Você fez dezenas de cursos.<br>E ainda decide caso a caso no improviso.</h2>
+        <p class="pain-intro reveal">O problema nunca foi falta de informação. Foi falta de <span class="highlight-mark">um método integrado que organize o que você já sabe num sistema de raciocínio clínico previsível e replicável.</span></p>
 
         <div class="pain-grid">
             <div class="pain-card reveal">
-                <h4>Conhecimento fragmentado</h4>
-                <p>Fez muitos cursos, aprendeu técnicas isoladas, mas não tem um sistema coerente de decisão clínica. Cada caso exige energia excessiva.</p>
+                <h4>Técnica fragmentada</h4>
+                <p>Aprendeu ortodontia numa especialidade isolada. Periodontia num curso, miniplacas noutro, DTM num terceiro. Nada conecta. Cada caso complexo exige reconstruir o raciocínio do zero.</p>
             </div>
             <div class="pain-card reveal">
-                <h4>Insegurança que não passa</h4>
-                <p>Extrair ou não, cirurgia ou compensação, miniplaca ou miniimplante. A dúvida não some com mais estudo.</p>
+                <h4>Diagnóstico incompleto</h4>
+                <p>Panorâmica não mostra o que a tomografia revela: condição das ATMs, espessura de cortical, reabsorções, vias aéreas. Você decide sem ver o caso inteiro.</p>
             </div>
             <div class="pain-card reveal">
-                <h4>Dificuldade em cobrar</h4>
-                <p>Sabe que entrega mais do que a média, mas não consegue comunicar isso ao paciente. Cobra menos do que deveria.</p>
+                <h4>Casos que voltam ou vão embora</h4>
+                <p>Mordida aberta que recidiva, Classe III limítrofe que você encaminhou por insegurança, retratamento que ninguém quer pegar. Falta método para resolver, não coragem.</p>
             </div>
             <div class="pain-card reveal">
-                <h4>Isolamento profissional</h4>
-                <p>Conduz casos sozinho, sem par para discutir, sem mentor para validar decisões. Carrega o peso das escolhas clínicas sem rede.</p>
+                <h4>Isolamento clínico</h4>
+                <p>Conduz casos sozinho, sem mentor para validar decisões. Extrair ou não, cirurgia ou compensação, miniplaca ou mini-implante — a dúvida não some com mais estudo.</p>
             </div>
         </div>
 
         <div class="pain-callout reveal">
-            Se você se reconheceu em pelo menos dois desses pontos, a Mentoria Remodelar foi construída para o seu perfil.
+            Se você é tecnicamente bom mas sente que o mercado não percebe, e se os cursos que fez não organizaram seu raciocínio num método integrado — a Mentoria Remodelar foi construída para o seu perfil.
         </div>
 
         <div class="text-center reveal">
@@ -690,8 +694,8 @@
     <div class="container text-center">
         <div class="section-label reveal">O PROGRAMA</div>
         <div class="section-label-line center reveal"></div>
-        <h2 class="reveal">O que nenhum curso entrega:<br>um método que conecta tudo.</h2>
-        <p class="program-intro reveal">Técnica sem gestão não escala. Marketing sem posicionamento não converte. A Remodelar integra os 4 pilares num único direcionamento — o seu.</p>
+        <h2 class="reveal">O Método Remodelar:<br>9 módulos de ortodontia integrada.</h2>
+        <p class="program-intro reveal">Um fluxo clínico estruturado que leva você do raciocínio fragmentado ao método integrado, previsível e replicável. Cada módulo alimenta o seguinte.</p>
     </div>
     <div class="container">
         <div class="method-grid">
@@ -699,29 +703,64 @@
                 <div class="method-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
-                <h4>Técnica Clínica</h4>
-                <p>Diagnóstico, biomecânica, miniplacas, planejamento avançado.</p>
+                <h4>1. Princípios da Ortodontia Integrada</h4>
+                <p>A lógica de pensamento clínico que sustenta todo o método. Hierarquia de decisões que todo caso complexo exige.</p>
+            </div>
+            <div class="method-card reveal">
+                <div class="method-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/><path d="M2 12h20"/></svg>
+                </div>
+                <h4>2. Diagnóstico 3D</h4>
+                <p>Tomografia como ferramenta primária. ATMs, cortical óssea, dentes inclusos, vias aéreas — o que a panorâmica não mostra.</p>
+            </div>
+            <div class="method-card reveal">
+                <div class="method-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 20l4-16m2 16l4-16M3 8h18M3 16h18"/></svg>
+                </div>
+                <h4>3. Ortodontia e Periodontia</h4>
+                <p>A fronteira mais negligenciada. Quando a movimentação compromete o periodonto e como planejar com o periodontista desde o início.</p>
+            </div>
+            <div class="method-card reveal">
+                <div class="method-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <h4>4. DTM e Oclusão</h4>
+                <p>Quando a ortodontia piora uma DTM existente. Sinais articulares, oclusão como sistema, estabilidade de longo prazo.</p>
+            </div>
+            <div class="method-card reveal">
+                <div class="method-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h4>5. Miniplacas — Mecânica</h4>
+                <p>Intrusão de molares, tracionamento de inclusos, distalização em massa. Quando a miniplaca supera o mini-implante.</p>
+            </div>
+            <div class="method-card reveal">
+                <div class="method-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h4>6. Miniplacas — Cirúrgica</h4>
+                <p>Protocolos de instalação, indicações por região anatômica, técnica de fixação e cuidados pós-operatórios.</p>
             </div>
             <div class="method-card reveal">
                 <div class="method-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
                 </div>
-                <h4>Gestão</h4>
-                <p>Consultório, agenda, processos, equipe e operação clínica.</p>
+                <h4>7. Implante e Prótese</h4>
+                <p>Timing e sequência entre ortodontia, implante e prótese. A decisão que salva ou compromete o caso inteiro.</p>
             </div>
             <div class="method-card reveal">
                 <div class="method-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-4"/></svg>
                 </div>
-                <h4>Marketing</h4>
-                <p>Presença digital, conteúdo, autoridade e geração de demanda.</p>
+                <h4>8. Cirurgia Ortognática</h4>
+                <p>Compensação ou cirurgia? Critérios de decisão reais, preparo ortodôntico e comunicação com o cirurgião.</p>
             </div>
             <div class="method-card reveal">
                 <div class="method-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l1.912 5.813h6.112l-4.968 3.624L17.02 18.25 12 14.624l-5.02 3.626 1.964-5.813L4 8.813h6.112z"/></svg>
                 </div>
-                <h4>Posicionamento</h4>
-                <p>Comunicação de valor, cobrança e percepção de mercado.</p>
+                <h4>9. Ortodontia e Estética</h4>
+                <p>Quando a estética é consequência do planejamento e quando é improviso. Resultado funcional sustentando o resultado estético.</p>
             </div>
         </div>
     </div>
@@ -739,24 +778,41 @@
     <div class="container text-center">
         <div class="section-label reveal">FORMATO</div>
         <div class="section-label-line center reveal"></div>
-        <h2 class="reveal">Como a mentoria funciona na prática.</h2>
+        <h2 class="reveal">Não é só encontro ao vivo.<br>É um sistema completo de desenvolvimento.</h2>
     </div>
     <div class="container">
         <div class="steps-grid">
             <div class="step-card reveal">
                 <span class="step-number">01</span>
-                <h4>Trilha guiada</h4>
-                <p>Antes de cada encontro, você recebe aulas preparatórias gravadas. Assiste no seu tempo, chega preparado para o aprofundamento ao vivo.</p>
+                <h4>Trilha preparatória</h4>
+                <p>Antes de cada encontro, aulas gravadas no portal AstroMembers. Você assiste no seu tempo, chega preparado para o aprofundamento ao vivo.</p>
             </div>
             <div class="step-card reveal">
                 <span class="step-number">02</span>
-                <h4>Encontro ao vivo</h4>
-                <p>12 encontros temáticos quinzenais de 1h30. Você traz seus casos, dúvidas de gestão, posicionamento, cobrança. Raniere direciona ao vivo.</p>
+                <h4>12 encontros em grupo</h4>
+                <p>Quinzenais, 1h30 cada. Os 9 módulos do Método Remodelar aplicados aos casos reais da turma. Raniere direciona ao vivo, caso a caso.</p>
             </div>
             <div class="step-card reveal">
                 <span class="step-number">03</span>
-                <h4>Direcionamento 360</h4>
-                <p>Nada de conteúdo genérico. Você traz a sua realidade e recebe direcionamento específico em técnica, gestão, marketing e posicionamento.</p>
+                <h4>2 encontros individuais</h4>
+                <p>Você e o Raniere, sem turma. Traz seus casos específicos, dúvidas de conduta e decisões clínicas pendentes. Direcionamento 100% personalizado.</p>
+            </div>
+        </div>
+        <div class="steps-grid" style="margin-top: 16px;">
+            <div class="step-card reveal">
+                <span class="step-number">04</span>
+                <h4>Imersões online</h4>
+                <p>Encontros de maior duração focados em aprofundamento temático. Mergulhos intensivos nos temas de maior demanda da turma.</p>
+            </div>
+            <div class="step-card reveal">
+                <span class="step-number">05</span>
+                <h4>Portal com tudo gravado</h4>
+                <p>Plataforma AstroMembers com conteúdo organizado por módulo. Todos os encontros ficam gravados. Acesso durante e após o programa.</p>
+            </div>
+            <div class="step-card reveal">
+                <span class="step-number">06</span>
+                <h4>Grupo direto com Raniere</h4>
+                <p>WhatsApp com acesso direto ao Raniere e à turma entre encontros. Suporte contínuo para dúvidas clínicas e de conduta.</p>
             </div>
         </div>
     </div>
@@ -767,25 +823,25 @@
     <div class="container text-center">
         <div class="section-label reveal">DIFERENCIAL</div>
         <div class="section-label-line center reveal"></div>
-        <h2 class="reveal">Curso dá informação.<br>Mentoria dá direcionamento.</h2>
+        <h2 class="reveal">Curso dá informação.<br>Mentoria dá raciocínio clínico.</h2>
     </div>
     <div class="container">
         <div class="diff-grid reveal">
             <div class="diff-col courses">
                 <h4>Cursos Tradicionais</h4>
-                <div class="diff-item"><span class="diff-bullet gray"></span> Conteúdo padronizado para turma genérica</div>
-                <div class="diff-item"><span class="diff-bullet gray"></span> Cobre uma fatia: só técnica, ou só gestão, ou só marketing</div>
-                <div class="diff-item"><span class="diff-bullet gray"></span> Tem início e fim. Depois, você volta pro isolamento</div>
-                <div class="diff-item"><span class="diff-bullet gray"></span> Resultado depende de você aplicar sozinho</div>
-                <div class="diff-item"><span class="diff-bullet gray"></span> Você recebe informação e precisa descobrir como usar</div>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Ensina uma especialidade isolada: só periodontia, ou só miniplacas, ou só DTM</div>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Conteúdo padronizado. Sua realidade clínica não entra</div>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Diagnóstico 2D como padrão. Panorâmica esconde o que importa</div>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Resultado depende de você aplicar sozinho, sem acompanhamento</div>
+                <div class="diff-item"><span class="diff-bullet gray"></span> Tem início e fim. Depois, volta pro isolamento clínico</div>
             </div>
             <div class="diff-col mentoria">
                 <h4>Mentoria Remodelar</h4>
-                <div class="diff-item"><span class="diff-bullet gold"></span> Você traz a sua realidade e recebe direcionamento específico</div>
-                <div class="diff-item"><span class="diff-bullet gold"></span> Cobre o 360: técnica, gestão, marketing e posicionamento</div>
-                <div class="diff-item"><span class="diff-bullet gold"></span> 12 encontros com continuidade e acompanhamento</div>
-                <div class="diff-item"><span class="diff-bullet gold"></span> Resultado vem do direcionamento ao vivo, caso a caso</div>
-                <div class="diff-item"><span class="diff-bullet gold"></span> Você organiza o que já sabe dentro de um método que funciona</div>
+                <div class="diff-item"><span class="diff-bullet gold"></span> 9 módulos integrados: da periodontia às miniplacas, da DTM à ortognática</div>
+                <div class="diff-item"><span class="diff-bullet gold"></span> Você traz seus casos e recebe direcionamento específico ao vivo</div>
+                <div class="diff-item"><span class="diff-bullet gold"></span> Diagnóstico 3D como ferramenta primária de decisão clínica</div>
+                <div class="diff-item"><span class="diff-bullet gold"></span> 12 encontros + 2 individuais + imersões + grupo com o Raniere</div>
+                <div class="diff-item"><span class="diff-bullet gold"></span> Método que transforma fragmentos em sistema de raciocínio replicável</div>
             </div>
         </div>
     </div>
@@ -804,37 +860,37 @@
                 <div class="check-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <p>Ortodontista que é bom tecnicamente mas o mercado não percebe.</p>
+                <p>Ortodontista que é bom tecnicamente mas o mercado não percebe. O "técnico invisível" que entrega mais do que cobra.</p>
             </div>
             <div class="audience-item reveal">
                 <div class="check-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <p>Fez muitos cursos mas não integrou tudo em método.</p>
+                <p>Fez cursos de periodontia, miniplacas, DTM — mas nunca integrou tudo num método de decisão clínica coerente.</p>
             </div>
             <div class="audience-item reveal">
                 <div class="check-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <p>Quer atender casos complexos com mais segurança.</p>
+                <p>Encaminha ou evita casos complexos — mordida aberta, Classe III limítrofe, retratamentos — por insegurança diagnóstica.</p>
             </div>
             <div class="audience-item reveal">
                 <div class="check-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <p>Sente falta de direcionamento em gestão, posicionamento e cobrança.</p>
+                <p>Decide entre cirurgia e compensação, miniplaca e mini-implante, sem um sistema de raciocínio que organize a decisão.</p>
             </div>
             <div class="audience-item reveal">
                 <div class="check-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <p>Precisa de acompanhamento, não de mais conteúdo.</p>
+                <p>Quer sair do diagnóstico 2D e dominar tomografia como ferramenta primária de planejamento.</p>
             </div>
             <div class="audience-item reveal">
                 <div class="check-circle">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
-                <p>Conduz casos sozinho e quer sair do isolamento profissional.</p>
+                <p>Conduz casos sozinho, sem mentor, sem rede. Precisa de acompanhamento, não de mais conteúdo.</p>
             </div>
         </div>
     </div>
@@ -914,15 +970,16 @@
             <div class="section-label-line reveal"></div>
             <h3 class="reveal">Dr. <span>Raniere Sousa</span></h3>
             <div class="speaker-bio">
-                <p class="reveal">Ortodontista especialista em diagnóstico 3D, ancoragem esquelética e tratamento de casos complexos.</p>
-                <p class="reveal">Criador da Mentoria Remodelar e da Turnê Remodelar, programa itinerante que conecta profissionais em 5 cidades do Brasil.</p>
-                <p class="reveal">Ele não ensina teoria desconectada da prática. Ensina o raciocínio que usa todos os dias para resolver casos que outros profissionais devolvem.</p>
+                <p class="reveal">Ortodontista especialista em diagnóstico tridimensional, ancoragem esquelética e tratamento de casos complexos. Pesquisa protocolos de miniplacas no doutorado — investigação científica ativa, não protocolo de terceiros.</p>
+                <p class="reveal">Criador do Método Remodelar e da Turnê Remodelar. Não ensina técnicas isoladas. Ensina o sistema de raciocínio clínico que usa todos os dias para resolver casos que outros profissionais devolvem.</p>
+                <p class="reveal">A biomecânica que aplica é derivada do diagnóstico, não de protocolo genérico. Cada decisão — mecânica segmentada, arcos de intrusão, loops de retração — nasce da leitura estrutural do caso.</p>
             </div>
             <div class="speaker-tags reveal">
+                <span class="speaker-tag">Doutorado em Miniplacas</span>
+                <span class="speaker-tag">Diagnóstico 3D (CBCT)</span>
                 <span class="speaker-tag">Casos Complexos</span>
-                <span class="speaker-tag">Diagnóstico 3D</span>
-                <span class="speaker-tag">Miniplacas</span>
-                <span class="speaker-tag">Mentoria 360</span>
+                <span class="speaker-tag">Biomecânica Aplicada</span>
+                <span class="speaker-tag">Ortodontia Integrada</span>
             </div>
             <div class="speaker-countries reveal">
                 <span>Mentorados em mais de 3 países</span>
@@ -946,7 +1003,7 @@
     <div class="container text-center">
         <div class="section-label reveal">INVESTIMENTO</div>
         <div class="section-label-line center reveal"></div>
-        <h2 class="reveal">O investimento que se paga em 2 a 3 casos.</h2>
+        <h2 class="reveal">Um caso complexo bem conduzido paga a mentoria inteira.</h2>
     </div>
     <div class="container">
         <div class="invest-card reveal">
@@ -959,25 +1016,32 @@
                 <ul class="invest-features" style="text-align:left;">
                     <li>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                        12 encontros temáticos quinzenais de 1h30
+                        9 módulos do Método Remodelar (ortodontia integrada completa)
                     </li>
                     <li>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                        Trilha guiada com aulas preparatórias gravadas
+                        12 encontros em grupo quinzenais de 1h30
                     </li>
                     <li>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                        Direcionamento personalizado: você traz sua realidade
+                        2 encontros 100% individuais com o Dr. Raniere
                     </li>
                     <li>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                        360 completo: técnica, gestão, marketing, posicionamento
+                        Imersões online de aprofundamento
                     </li>
                     <li>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-                        Acesso direto ao Dr. Raniere
+                        Trilha preparatória + portal com tudo gravado (AstroMembers)
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                        Grupo no WhatsApp com acesso direto ao Raniere
                     </li>
                 </ul>
+                <p style="font-size:0.82rem; color:var(--stone-dark); margin-bottom:24px; text-align:left; border-top:1px solid rgba(0,0,0,0.06); padding-top:16px;">
+                    <strong style="color:var(--walnut);">Bônus:</strong> Marketing digital ao vivo · Treinamento de gestão · Webinário de vendas · Inteligência emocional
+                </p>
                 <div class="invest-cta-wrap">
                     <!-- TODO: substituir pelo WhatsApp da Bruna -->
                     <a href="#" class="shiny-cta">
@@ -1006,7 +1070,16 @@
                     <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 <div class="faq-answer">
-                    <p>Porque não é curso. Curso dá informação, mentoria dá direcionamento. Se os cursos resolvessem, você não estaria aqui. O problema nunca foi falta de conteúdo. Foi falta de alguém que organize o que você já sabe dentro de um método que funcione na sua realidade.</p>
+                    <p>Porque não é curso. Cursos ensinam técnicas isoladas — só periodontia, ou só miniplacas, ou só DTM. O Método Remodelar integra 9 módulos num sistema de raciocínio clínico sequencial. Você não sai com mais informação. Sai com um método que conecta o que você já sabe.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    O que são os 9 módulos?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Princípios da Ortodontia Integrada, Diagnóstico 3D, Periodontia, DTM e Oclusão, Miniplacas (Mecânica), Miniplacas (Cirúrgica), Implante e Prósese, Cirurgia Ortognática e Estética. A sequência é intencional: cada módulo alimenta o seguinte.</p>
                 </div>
             </div>
             <div class="faq-item reveal">
@@ -1015,7 +1088,7 @@
                     <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 <div class="faq-answer">
-                    <p>Os encontros são quinzenais, de 1h30. Menos de 3 horas por mês. Se não tem 3 horas por mês pra investir na evolução da própria carreira, o problema é maior do que a mentoria resolve.</p>
+                    <p>Os encontros são quinzenais, de 1h30. A trilha preparatória é gravada e você assiste no seu ritmo. Menos de 3 horas por mês no ao vivo. Se não tem 3 horas por mês para investir no seu raciocínio clínico, o problema é maior do que a mentoria resolve.</p>
                 </div>
             </div>
             <div class="faq-item reveal">
@@ -1024,7 +1097,7 @@
                     <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 <div class="faq-answer">
-                    <p>Quanto custa continuar sem método, cobrando menos do que deveria, perdendo casos por insegurança na decisão? A mentoria se paga em 2 a 3 casos bem conduzidos. É investimento com retorno direto.</p>
+                    <p>Quanto custa continuar sem método, encaminhando casos complexos por insegurança e cobrando menos do que deveria? Um único caso de mordida aberta bem conduzido com miniplacas já paga o programa inteiro. Isso sem contar os 2 encontros individuais com o Raniere — que sozinhos valem o investimento.</p>
                 </div>
             </div>
             <div class="faq-item reveal">
@@ -1033,7 +1106,7 @@
                     <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 <div class="faq-answer">
-                    <p>A maioria dos mentorados achava a mesma coisa antes de entrar. Se você sente que é bom tecnicamente mas o mercado não percebe, se fez vários cursos e ainda trava nos mesmos pontos, esse é exatamente o perfil que a mentoria foi desenhada para receber.</p>
+                    <p>Se você sente que é tecnicamente bom mas o mercado não percebe, se decide caso a caso no improviso e carrega o peso das decisões clínicas sozinho — esse é exatamente o perfil que a mentoria foi desenhada para receber. A maioria dos mentorados achava a mesma coisa antes de entrar.</p>
                 </div>
             </div>
             <div class="faq-item reveal">
@@ -1042,7 +1115,7 @@
                     <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
                 <div class="faq-answer">
-                    <p>A mentoria é focada em ortodontistas, mas dentistas de outras especialidades que trabalham com casos integrados e precisam de direcionamento em gestão, posicionamento e método também se beneficiam. Fale com a equipe para entender se faz sentido pro seu perfil.</p>
+                    <p>O núcleo da mentoria é ortodontia integrada — 9 módulos clínicos focados em diagnóstico 3D, miniplacas, biomecânica e integrações multidisciplinares. Dentistas de outras especialidades que trabalham com casos integrados também se beneficiam. Fale com a equipe para entender se faz sentido pro seu perfil.</p>
                 </div>
             </div>
         </div>
@@ -1063,11 +1136,11 @@
         <!-- TODO: substituir pela foto do Raniere -->
         <div class="closing-avatar"></div>
         <div class="closing-text">
-            <p class="reveal">Você pode continuar fazendo cursos, salvando PDFs e resolvendo caso a caso no improviso.</p>
-            <p class="reveal">Ou pode parar de acumular informação e começar a organizar o que já sabe dentro de um método que funcione na sua realidade.</p>
-            <p class="reveal">A mentoria não vai te ensinar mais técnica. Vai te dar clareza para usar o que você já sabe com segurança, coerência e resultado.</p>
+            <p class="reveal">Você pode continuar fazendo cursos isolados, decidindo caso a caso e carregando sozinho o peso de cada decisão clínica.</p>
+            <p class="reveal">Ou pode organizar o que já sabe dentro de um método integrado — com 9 módulos, diagnóstico 3D como base, e direcionamento individual de quem resolve casos que outros devolvem.</p>
+            <p class="reveal">A técnica vem primeiro. O financeiro é consequência.</p>
         </div>
-        <p class="closing-highlight reveal">12 encontros. 6 meses. Um mentor.<br>O método que organiza tudo.</p>
+        <p class="closing-highlight reveal">9 módulos. 12 encontros. 2 individuais. 6 meses.<br>O método que conecta tudo.</p>
         <!-- TODO: substituir pelo WhatsApp da Bruna -->
         <a href="#investimento" class="shiny-cta reveal">
             Quero aplicar para a mentoria
